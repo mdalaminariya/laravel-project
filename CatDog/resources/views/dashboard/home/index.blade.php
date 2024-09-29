@@ -1,5 +1,5 @@
 @extends('layouts.dashboardmaster')
 
 @section('content')
-    <h1>Hello Cat Dog</h1>
+    <h1 class="d-flex justify-content-center">Welcome to CatDog Page</h1>
 @endsection

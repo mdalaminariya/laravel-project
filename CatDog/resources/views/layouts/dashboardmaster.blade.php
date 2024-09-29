@@ -79,6 +79,11 @@
                                         <span class="menu-text">Assing Role & Register</span>
                                     </a>
                                 </li>
+                                <li class="menu-item">
+                                    <a class='menu-link' href='{{ route('management.role.index') }}'>
+                                        <span class="menu-text">Assing Existing User Role</span>
+                                    </a>
+                                </li>
 
                             </ul>
                         </div>

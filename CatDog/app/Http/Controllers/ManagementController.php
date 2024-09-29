@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ManagementController extends Controller
 {
@@ -45,6 +46,84 @@ class ManagementController extends Controller
                 ]);
                 return back()->with('register_complete','Manager Demotion Successfully.!');
             }
-
     }
+
+    //role manage
+
+    public function role_index(){
+        $bloggers = User::where('role','blogger')->get();
+        $users = User::where('role','user')->where('block',false)->get();
+        return view('dashboard.management.role.role',[
+            'users' => $users,
+            'bloggers' =>$bloggers,
+            ]);
+    }
+
+    public function role_assign(Request $request){
+        $request->validate([
+            'role' => 'required|in:manager,blogger,user',
+        ]);
+
+        $user = User::where('id',$request->user_id)->first();
+
+        User::find($user->id)->update([
+            'role' => $request->role,
+            'update_at' => now(),
+        ]);
+
+        Session::flash('AssignRoll_complete','Role Promotion Successfully..!');
+
+        return back();
+    }
+
+    public function blogger_grade_down($id){
+        $user = User::where('id',$id)->first();
+
+        User::find($user->id)->update([
+            'role' => 'user',
+            'update_at' => now(),
+        ]);
+
+        Session::flash('AssignRoll_complete','Role Demotion Successfully..!');
+
+        return back();
+    }
+
+
+    public function user_grade_down($id){
+        $user = User::where('id',$id)->first();
+
+        if($user->role == 'user'){
+            User::find($user->id)->update([
+                'block' =>true,
+                'updated_at'=>now(),
+            ]);
+            Session::flash('AssignRoll_complete','User Block Successfully..!');
+
+            return back();
+        }
+    }
+
+
+    public function user_delete($id){
+        $user = User::where('id',$id)->first();
+
+        User::find($user->id)->delete();
+
+
+        Session::flash('AssignRoll_complete','User Delete Successfully..!');
+
+            return back();
+    }
+
+    public function blogger_delete($id){
+        $blogger = User::where('id',$id)->first();
+
+        User::find($blogger->id)->delete();
+
+        Session::flash('AssignRoll_complete','Blogger Delete Successfully..!');
+
+        return back();
+    }
+
 }
