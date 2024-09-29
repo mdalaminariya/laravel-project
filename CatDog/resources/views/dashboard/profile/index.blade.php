@@ -1,7 +1,11 @@
 @extends('layouts.dashboardmaster')
 
-@section('content')
+@section('title')
+    Profile Update / D A S H T R A P
+@endsection
 
+@section('content')
+<x-breadCum catdog="Profile Update Page"></x-breadCum>
 <div class="row">
     <div class="col-xl-6">
        {{-- name Update massage start --}}

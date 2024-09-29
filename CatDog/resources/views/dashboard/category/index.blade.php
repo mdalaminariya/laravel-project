@@ -1,6 +1,12 @@
 @extends('layouts.dashboardmaster')
 
+@section('title')
+    Category / D A S H T R A P
+@endsection
+
 @section('content')
+
+<x-breadCum catdog="Category Show  Page"></x-breadCum>
 
 <div class="row">
     <div class="col-lg-6">

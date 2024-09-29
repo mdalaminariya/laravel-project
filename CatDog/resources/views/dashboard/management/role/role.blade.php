@@ -1,6 +1,12 @@
 @extends('layouts.dashboardmaster')
 
+@section('title')
+    Management Role Update / D A S H T R A P
+@endsection
+
 @section('content')
+
+<x-breadCum catdog="Management Role Update  Page"></x-breadCum>
 
 <div class="row">
     <div class="col-lg-12">
