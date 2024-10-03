@@ -23,6 +23,7 @@ class CategoryController extends Controller
         'image' => 'required|image',
        ]);
        if($request->hasFile('image')){
+
         $new_name = auth()->user()->id .'-'. $request->title.'-'.rand(1111,9999).'.'. $request->file('image')->getClientOriginalExtension();
         $image = $manager->read($request->file('image'));
         $image->toPng()->save(base_path('public/upload/category/'.$new_name));

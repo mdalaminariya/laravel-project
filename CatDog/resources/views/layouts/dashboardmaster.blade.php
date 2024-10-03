@@ -22,7 +22,8 @@
     <link href="{{ asset('dashboard') }}/assets/css/icons.min.css" rel="stylesheet" type="text/css">
     <script src="{{ asset('dashboard') }}/assets/js/config.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-
+    <!-- Tiny Mc -->
+    <script src="https://cdn.tiny.cloud/1/9fok538z63ejkbg4f2ghvqy5xlh9261qil4x73sn89bkq5w8/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
 </head>
 

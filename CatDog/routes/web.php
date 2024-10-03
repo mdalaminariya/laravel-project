@@ -60,7 +60,6 @@ Route::get('/category/delete/{slug}',[CategoryController::class,'delete'])->name
 //category status
 Route::post('/category/status/{slug}',[CategoryController::class,'status'])->name('category.index.status');
 
-
 //blog
 
-Route::resource('/blog',BlogController::class);
+Route::resource('/blog', BlogController::class);
