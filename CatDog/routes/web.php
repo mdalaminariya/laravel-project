@@ -63,3 +63,4 @@ Route::post('/category/status/{slug}',[CategoryController::class,'status'])->nam
 //blog
 
 Route::resource('/blog', BlogController::class);
+Route::post('/blog/status/{id}',[BlogController::class,'status'])->name('blog.status');

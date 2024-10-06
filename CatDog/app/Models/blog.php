@@ -11,4 +11,8 @@ class Blog extends Model
     use HasFactory;
 
     protected $guarded = [''];
+
+    public function onecategory(){
+        return $this->hasOne(Category::class,'id','category_id');
+    }
 }
