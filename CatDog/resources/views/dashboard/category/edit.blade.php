@@ -28,18 +28,15 @@
                         </div>
                     </div>
 
-                    <div class="row mb-3">
-                        <div class="col-sm-9" style="padding-left: 30%">
-                            <img id="catDog" src="{{ asset('upload/category') }}/{{ $category->image }}" alt="image" style="width: 100%,height:200px;">
+                    <div class="row mb-3"  style="padding-left: 35%">
+                        <div class="col-sm-9">
+                            <img id="catDog" src="{{ asset('upload/category') }}/{{ $category->image }}" style="width:100%; height:100%;">
                         </div>
                     </div>
-
                     <div class="row mb-2">
                         <label for="inputPassword5" class="col-sm-3 col-form-label">Category Image</label>
                         <div class="col-sm-9">
-                            <input onchange="document.querySelector('#catDog').src = window.URL.createObjectURL(this.files[0])" type="file" class="form-control @error('image')
-                                is-invalid
-                            @enderror" id="inputPassword5" name="image">
+                            <input type="file" onchange="document.querySelector('#catDog').src = window.URL.createObjectURL(this.files[0])" class="form-control @error('image') is-invalid @enderror" id="inputPassword5" name="image">
                         </div>
                         @error('image')
                             <p class="text-danger">{{ $message }}</p>

@@ -92,7 +92,7 @@
                         @enderror
                     </div>
                     <div class="justify-content-end row">
-                        <div class="col-sm-9">
+                        <div class="col-sm-9" style="padding-left: 35%">
                             <button type="submit" class="btn btn-info waves-effect waves-light">Save</button>
                         </div>
                     </div>

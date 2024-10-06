@@ -51,7 +51,7 @@
                                 <a href="{{ route('category.index.edit',$category->slug) }}" class="btn btn-info btn-sm" >
                                     <i class="fa-solid fa-pen-to-square"></i>
                                 </a>
-                                <a href="{{ route('category.index.delete',$category->slug) }}" class="btn btn-danger btn-sm" >
+                                <a href="{{ route('category.index.delete',$category->slug) }}" class="btn btn-danger btn-sm" style="margin-top: 5px">
                                     <i class="fa-solid fa-trash"></i>
                                 </a>
                             </td>
