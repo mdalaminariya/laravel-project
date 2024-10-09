@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\Blog;
 class category extends Model
 {
     use HasFactory;
@@ -15,4 +15,8 @@ class category extends Model
         'image',
         'status',
     ];
+
+    public function oneblog(){
+        return $this->hasOne(Blog::class,'category_id','id');
+    }
 }
