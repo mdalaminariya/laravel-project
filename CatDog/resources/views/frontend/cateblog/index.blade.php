@@ -27,34 +27,35 @@
                 <div class="col-md-12">
                     <!--post 1-->
                     @forelse ($blogs as $blog)
-                        <div class="post-list post-list-style2">
-                            <div class="post-list-image">
-                                <a href="post-single.html">
-                                    <img src="{{ asset('upload/blog') }}\{{ $blog->thumbnail }}" alt="" style="height: 95%;width:90%">
-                                </a>
-                            </div>
-                            <div class="post-list-content">
-                                <h3 class="entry-title">
-                                    <a href="post-single.html">{{ $blog->title }}</a>
-                                </h3>
-                                <ul class="entry-meta">
-                                    @if ($blog->oneuser->image == 'CatDog.jpg')
-                                    <li class="post-author-img"><img src="{{ Avatar::create($blog->oneuser->name)->toBase64(); }}" alt=""></li>
-                                    @else
-                                    <li class="post-author-img"><img src="{{ asset('upload/default/CatDog.jpg') }}" alt=""></li>
-                                    @endif
-                                    <li class="post-author"> <a href="author.html">{{ $blog->oneuser->name }}</a></li>
-                                    <li class="entry-cat"> <a href="blog-layout-1.html" class="category-style-1 "> <span class="line"></span> {{ $blog->oneuser->role }}</a></li>
-                                    <li class="post-date"> <span class="line"></span>{{ Carbon\Carbon::parse($blog->created_at )->format('F D ,Y') }}</li>
-                                </ul>
-                                <div class="post-exerpt">
-                                    <p>{!! $blog->short_description !!}</p>
+
+                            <div class="post-list post-list-style2">
+                                <div class="post-list-image" style="height: 30%;width:30%">
+                                    <a href="post-single.html">
+                                        <img src="{{ asset('upload/blog') }}\{{ $blog->thumbnail }}" alt="" >
+                                    </a>
                                 </div>
-                                <div class="post-btn">
-                                    <a href="post-single.html" class="btn-read-more">Continue Reading <i class="las la-long-arrow-alt-right"></i></a>
+                                <div class="post-list-content">
+                                    <h3 class="entry-title">
+                                        <a href="post-single.html">{{ $blog->title }}</a>
+                                    </h3>
+                                    <ul class="entry-meta">
+                                        @if ($blog->oneuser->image == 'CatDog.jpg')
+                                        <li class="post-author-img"><img src="{{ Avatar::create($blog->oneuser->name)->toBase64(); }}" alt=""></li>
+                                        @else
+                                        <li class="post-author-img"><img src="{{ asset('upload/default/CatDog.jpg') }}" alt=""></li>
+                                        @endif
+                                        <li class="post-author"> <a href="author.html">{{ $blog->oneuser->name }}</a></li>
+                                        <li class="entry-cat"> <a href="blog-layout-1.html" class="category-style-1 "> <span class="line"></span> {{ $blog->oneuser->role }}</a></li>
+                                        <li class="post-date"> <span class="line"></span>{{ Carbon\Carbon::parse($blog->created_at )->format('F D ,Y') }}</li>
+                                    </ul>
+                                    <div class="post-exerpt">
+                                        <p>{!! $blog->short_description !!}</p>
+                                    </div>
+                                    <div class="post-btn">
+                                        <a href="{{ route('frontend.blog.single',$blog->slug) }}" class="btn-read-more">Continue Reading <i class="las la-long-arrow-alt-right"></i></a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                     @empty
                      <div class="post-list post-list-style2">
                         <div class="post-list-image">
