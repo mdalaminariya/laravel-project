@@ -32,6 +32,6 @@ class BlogController extends Controller
             'created_at' => now(),
         ]);
 
-        return back()->withErrors('Massage Sent Successfully..!');
+        return redirect()->route('frontend.blog.single')->with('Success','Comment Sent Successfully..!');
     }
 }
