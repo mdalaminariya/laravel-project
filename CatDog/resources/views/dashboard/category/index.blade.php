@@ -39,7 +39,7 @@
                             </td>
                             <td>{{ $category->title }}</td>
                             <td>
-                                <form id="CatDog{{ $category->id }}" action="{{ route('category.index.status',$category->slug) }}" method="post">
+                                <form id="CatDog{{ $category->id }}" action="{{ route('category.status',$category->slug) }}" method="post">
                                     @csrf
                                     <div class="form-check form-switch">
                                         <input onchange="document.querySelector('#CatDog{{ $category->id }}').submit()"   class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" {{ $category->status == 'active' ? 'checked' : '' }}>
@@ -48,10 +48,10 @@
                                 </form>
                             </td>
                             <td>
-                                <a href="{{ route('category.index.edit',$category->slug) }}" class="btn btn-info btn-sm" >
+                                <a href="{{ route('category.edit',$category->slug) }}" class="btn btn-info btn-sm" >
                                     <i class="fa-solid fa-pen-to-square"></i>
                                 </a>
-                                <a href="{{ route('category.index.delete',$category->slug) }}" class="btn btn-danger btn-sm" style="margin-top: 5px">
+                                <a href="{{ route('category.delete',$category->slug) }}" class="btn btn-danger btn-sm" style="margin-top: 5px">
                                     <i class="fa-solid fa-trash"></i>
                                 </a>
                             </td>
@@ -69,7 +69,7 @@
             <div class="card-body">
                 <h4 class="header-title mb-3">Category Insert Form</h4>
 
-                <form role="form" action="{{ route('category.index.store') }}" method="post" enctype="multipart/form-data">
+                <form role="form" action="{{ route('category.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="row mb-3">
                         <label for="inputEmail3" class="col-sm-3 col-form-label">Category Title</label>

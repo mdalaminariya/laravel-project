@@ -25,7 +25,7 @@ class GuestAuthentication extends Controller
             'password' => Hash::make($request->password),
             'created_at' => now(),
         ]);
-        return redirect()->route('guest.login')->with('register_success' , "Registration Complete");
+        return redirect()->route('guest.login')->with('success' , 'Registration Complete successfully..!');
     }
 
     public function login(){
@@ -41,7 +41,7 @@ class GuestAuthentication extends Controller
         if(Auth::attempt($resource)){
             return redirect()->route('home');
         }else{
-            return back()->withErrors(['email' => 'user is not valid'])->withInput();
+            return back()->withErrors(['email' => 'This user is not valid'])->withInput();
         }
     }
 

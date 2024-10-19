@@ -16,7 +16,7 @@ class RoleCheckMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::user()->role == 'admin' || Auth::user()->role == 'manager' ){
+        if(Auth::user()->role == 'admin' || Auth::user()->role == 'manager' || Auth::user()->role == 'blogger' ){
 
             return $next($request);
         }else{

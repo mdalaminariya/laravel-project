@@ -8,7 +8,7 @@
             <div class="card-body">
                 <h4 class="header-title mb-3">Category Edit Form</h4>
 
-                <form role="form" action="{{ route('category.index.update',$category->slug) }}" method="post" enctype="multipart/form-data">
+                <form role="form" action="{{ route('category.update',$category->slug) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="row mb-3">
                         <label for="inputEmail3" class="col-sm-3 col-form-label">Category Title</label>

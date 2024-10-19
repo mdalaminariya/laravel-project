@@ -44,24 +44,24 @@
 
 
 
-@if (session('register_success'))
-        <script>
-            const Toast = Swal.mixin({
-                toast: true,
-                position: "top-end",
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.onmouseenter = Swal.stopTimer;
-                    toast.onmouseleave = Swal.resumeTimer;
-                }
-                });
-                Toast.fire({
-                icon: "success",
-                title: "{{ session('register_success') }}"
-            });
-        </script>
-@endif
+    @section('script')
 
-@endsection
+    @if (session('success'))
+    <script>
+        Toastify({
+        text: "{{ session('success') }}",
+        duration: 5000,
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "center", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: "linear-gradient(to right, #008B8B, #D8BFD8)",
+        },
+        onClick: function(){} // Callback after click
+        }).showToast();
+    </script>
+    @endif
+
+    @endsection
